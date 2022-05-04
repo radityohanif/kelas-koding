@@ -1,0 +1,44 @@
+{% extends "template.html" %}
+{% block content %}
+
+<h2>Analisis</h2>
+<p class="fs-5">Ongkos Kirim</p>
+
+<input type="hidden" id="origin" name="origin" value="{{dataPost['origin']}}">
+<input type="hidden" id="destination" name="destination" value="{{dataPost['destination']}}">
+<input type="hidden" id="weight" name="weight" value="{{dataPost['weight']}}">
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-4 mb-5">
+            <div class="row">
+                <div class="col-12 mb-4">
+                    <div class="card shadow">
+                        <div class="card-body">
+                          <h5 class="card-title">Kota Asal</h5>
+                          <p>{{city['origin']}}</p>
+                          <a href="https://www.google.com/maps?q={{city['origin']}}" target="_blank" class="btn btn-primary">Lihat Lokasi</a>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-12 mb-4">
+                    <div class="card shadow">
+                        <div class="card-body">
+                          <h5 class="card-title">Kota Tujuan</h5>
+                          <p>{{city['destination']}}</p>
+                          <a href="https://www.google.com/maps?q={{city['destination']}}" target="_blank" class="btn btn-primary">Lihat Lokasi</a>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 mb-5">
+            <div id="chartOngkir" class="chart"></div>
+        </div>
+    </div>
+</div>
+
+<script src="{{url_for('static', filename='js/vendor/echarts.js')}}"></script>
+<script src="{{url_for('static', filename='js/app/ongkos-kirim.js')}}"></script>
+
+{% endblock %}

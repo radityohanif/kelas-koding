@@ -1,0 +1,37 @@
+{% extends "template.html" %}
+{% block content %}
+
+<h2>Analisis</h2>
+<p class="fs-5">Ongkos Kirim</p>
+<form action="{{url_for('ResultOngkir')}}" method="post">
+    <div class="container mt-5">
+        <div class="form-floating mb-4">
+            <select class="form-select" id="origin" name="origin">
+                {% for item in availableCity %}
+                    <option value="{{item['city_id']}}%{{item['city_name']}}">{{item['city_name']}}</option>
+                {% endfor %}
+            </select>
+            <label for="origin">Kota asal pengiriman</label>
+        </div>
+        <div class="form-floating mb-4">
+            <select class="form-select" id="destination" name="destination">
+                {% for item in availableCity %}
+                    <option value="{{item['city_id']}}%{{item['city_name']}}">{{item['city_name']}}</option>
+                {% endfor %}
+            </select>
+            <label for="destination">Kota tujuan pengiriman</label>
+        </div>
+        <div class="form-floating mb-4">
+            <input type="number" class="form-control" id="weight" placeholder="#" name="weight">
+            <label for="weight">Berat barang (gram)</label>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div>
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}
