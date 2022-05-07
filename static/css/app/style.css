@@ -21,6 +21,7 @@
 /* 🎨Custom Hover Effect */
 /* ===================== */
 .sb-nav-link-icon, .nav-link {
+    /* https://www.w3schools.com/css/css3_animations.asp */
     transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s !important;
 }
 .sb-sidenav-dark .nav-link:hover, 
